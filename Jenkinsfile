@@ -3,7 +3,17 @@ pipeline{
  tools {
   maven 'M2_HOME'
      }
+/* environment{
+     AWS_ACCESS_KEY_ID  = credentials('AWS_ACCESS_KEY_ID')
+     AWS_SECRET_ACCESS_KEY  = credentials('AWS_SECRET_ACCESS_KEY')
+ }*/
 stages{
+  stage('test AWS Credentials'){
+   steps{
+     withAWS(credentials: 'AWS Credentials' , region: 'ap-south-1' ){
+      sh 'echo "Login success"'
+   }
+  }
   stage('Git Checkout') {
   steps {
   git 'https://github.com/mjjawad/project-banking.git'
