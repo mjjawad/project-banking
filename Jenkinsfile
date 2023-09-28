@@ -7,8 +7,8 @@ pipeline{
      AWS_ACCESS_KEY_ID  = credentials('AWS_ACCESS_KEY_ID')
      AWS_SECRET_ACCESS_KEY  = credentials('AWS_SECRET_ACCESS_KEY')
  }*/
-/*stages{
- stage('test AWS Credentials'){
+stages{
+ /*stage('test AWS Credentials'){
    steps{
      withAWS(credentials: 'AWS Credentials' , region: 'ap-south-1' ){
       sh 'echo "Login success"'
@@ -20,7 +20,7 @@ pipeline{
   git 'https://github.com/mjjawad/project-banking.git'
         }
      }
-}
+
   stage('Build Package'){
     steps {
            sh 'mvn clean package'
@@ -45,7 +45,7 @@ pipeline{
            sh 'docker push jawadjk786/banking-app:1.0'
             }
         }
- stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
+/*stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
             steps {
                 dir('my-serverfiles'){
                 sh 'sudo chmod 600 Awskeypair.pem'
@@ -55,7 +55,7 @@ pipeline{
                 sh 'terraform apply --auto-approve'
                 }
             }
-        }
+        }*/
 
- 
+}
 }
