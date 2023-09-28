@@ -3,10 +3,10 @@ pipeline{
  tools {
   maven 'M2_HOME'
      }
-environment{
+/*environment{
      AWS_ACCESS_KEY_ID  = credentials('AWS_ACCESS_KEY_ID')
      AWS_SECRET_ACCESS_KEY  = credentials('AWS_SECRET_ACCESS_KEY')
- }
+ }*/
 stages{
  /* stage('test AWS Credentials'){
    steps{
@@ -45,7 +45,7 @@ stages{
            sh 'docker push jawadjk786/banking-app:1.0'
             }
         }
-  stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
+ /* stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
             steps {
                 dir('my-serverfiles'){
                 sh 'sudo chmod 600 Awskeypair.pem'
@@ -55,7 +55,7 @@ stages{
                 sh 'terraform apply --auto-approve'
                 }
             }
-        }
+        }*/
 
   }
 }
