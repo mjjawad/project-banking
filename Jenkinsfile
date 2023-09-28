@@ -8,7 +8,7 @@ pipeline{
      AWS_SECRET_ACCESS_KEY  = credentials('AWS_SECRET_ACCESS_KEY')
  }*/
 stages{
- /* stage('test AWS Credentials'){
+ /*stage('test AWS Credentials'){
    steps{
      withAWS(credentials: 'AWS Credentials' , region: 'ap-south-1' ){
       sh 'echo "Login success"'
@@ -56,7 +56,6 @@ stages{
                 }
             }
         }*/
-
   }
 
  
