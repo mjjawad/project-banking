@@ -24,6 +24,16 @@ stages{
            sh 'docker build -t jawadjk786/banking-app:1.0 .'
            }
           }  
+  stage('Docker image push'){
+      steps{
+           withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'docker_password', usernameVariable: 'docker_user')]) {
+               
+          sh 'docker login -u ${docker_user} -p ${docker_password}'
+               }
+           sh 'docker push jawadjk786/banking-app:1.0'
+            }
+        }
+ 
   }
 }
   
